@@ -33,6 +33,15 @@ const ball = {
   color: "WHITE"
 }
 
+// create the net
+const net = {
+  x: cvs.width - 1,
+  y: 0,
+  width: 2,
+  height: 10,
+  color: "WHITE"
+}
+
 // draw rect function
 function drawRect(x, y, w, h, color) {
   ctx.fillStyle = color;
