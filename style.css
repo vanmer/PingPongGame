@@ -1,7 +1,13 @@
+body {
+  background-color: #B8E1FF;
+}
+
 canvas {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+  border: 2px solid #FFF;
+  position: absolute;
+  margin: auto;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
 }
