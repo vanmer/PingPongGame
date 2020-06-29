@@ -2,6 +2,26 @@
 const cvs = document.getElementById("pong");
 const ctx = cvs.getContext("2d");
 
+// create the user paddle
+const user = {
+  x: 0,
+  y: cvs.height/2 - 100/2,
+  width: 10,
+  height: 100,
+  color: "WHITE",
+  score: 0
+}
+
+// create the com paddle
+const com = {
+  x: cvs.width - 10,
+  y: cvs.height/2 - 100/2,
+  width: 10,
+  height: 100,
+  color: "WHITE",
+  score: 0
+}
+
 // draw rect function
 function drawRect(x, y, w, h, color) {
   ctx.fillStyle = color;
