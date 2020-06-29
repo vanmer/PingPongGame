@@ -97,12 +97,22 @@ function render() {
 
 // update function, that does all calculation
 function update() {
-  
+
+  // the ball's velocity
+  ball.x += ball.velocityX;
+  ball.y += ball.velocityY;
+
+  // when the ball collides with the bottom and top walls, the the y velocity is inversed
+  if (ball.y + ball.radius > cvs.height || ball.y - ball.radius < 0) {
+    ball.velocityY = -ball.velocityY;
+  }
+
 }
 
 
 // game function
 function game() {
+  update();
   render();
 }
 
