@@ -95,6 +95,12 @@ function render() {
   drawCircle(ball.x, ball.y, ball.radius, ball.color);
 }
 
+// update function, that does all calculation
+function update() {
+  
+}
+
+
 // game function
 function game() {
   render();
