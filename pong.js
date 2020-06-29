@@ -160,6 +160,16 @@ function update() {
     // speed up the ball everytime a paddle hits it
     ball.speed += 0.1;
   }
+  // update the score
+  if (ball.x - ball.radius < 0) {
+    // com wins
+    com.score++;
+    resetBall();
+  } else if (ball.x + ball.radius > cvs.width) {
+    // user wins
+    user.score++;
+    resetBall();
+  }
 
 }
 
