@@ -143,10 +143,12 @@ function update() {
   if (ball.x - ball.radius < 0) {
     // com wins
     com.score++;
+    comScore.play();
     resetBall();
   } else if (ball.x + ball.radius > cvs.width) {
     // user wins
     user.score++;
+    userScore.play();
     resetBall();
   }
 
@@ -161,6 +163,7 @@ function update() {
   // when the ball collides with the bottom and top walls, the the y velocity is inversed
   if (ball.y + ball.radius > cvs.height || ball.y - ball.radius < 0) {
     ball.velocityY = -ball.velocityY;
+    wall.play();
   }
 
   // check if the ball hits the user or com paddle
@@ -168,6 +171,8 @@ function update() {
 
   // if the ball hits a paddle
   if(collision(ball, player)) {
+    // play audio
+    hit.play();
     // check where the ball hits the paddle
     let collidePoint = ball.y - (player.y + player.height/2);
     // normalize value of collidePoint to get numbers between -1 and 1
