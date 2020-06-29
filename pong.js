@@ -118,13 +118,15 @@ function collision(b, p) {
   return p.left < b.right && p.top < b.bottom && p.right > b.left && p.bottom > b.top;
 }
 
-
 // update function, that does all calculation
 function update() {
-
   // the ball's velocity
   ball.x += ball.velocityX;
   ball.y += ball.velocityY;
+
+  // simple AI to control the com paddle
+  let computerLevel = 0.1;
+  com.y += (ball.y - (com.y + com.height/2)) * computerLevel;
 
   // when the ball collides with the bottom and top walls, the the y velocity is inversed
   if (ball.y + ball.radius > cvs.height || ball.y - ball.radius < 0) {
@@ -136,7 +138,8 @@ function update() {
 
   // if the ball hits a paddle
   if(collision(ball, player)) {
-
+    // where the ball hit the player
+    
   }
 
 }
