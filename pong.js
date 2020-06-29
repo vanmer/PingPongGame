@@ -35,11 +35,18 @@ const ball = {
 
 // create the net
 const net = {
-  x: cvs.width - 1,
+  x: (cvs.width - 2)/2,
   y: 0,
   width: 2,
   height: 10,
   color: "WHITE"
+}
+
+// draw net function
+function drawNet() {
+  for (let i = 0; i <= cvs.height; i+=15) {
+    drawRect(net.x, net.y + i, net.width, net.height, net.color);
+  }
 }
 
 // draw rect function
@@ -82,4 +89,9 @@ function render() {
 
   // draw the circle
   drawCircle(ball.x, ball.y, ball.radius, ball.color);
+}
+
+// game function
+function game() {
+  render();
 }
