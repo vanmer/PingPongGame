@@ -2,7 +2,18 @@
 const cvs = document.getElementById("pong");
 const ctx = cvs.getContext("2d");
 
-// create the user paddle
+// load audio files
+let hit = new Audio();
+let wall = new Audio();
+let userScore = new Audio();
+let comScore = new Audio();
+
+hit.src = "sounds/hit.mp3";
+wall.src = "sounds/wall.mp3";
+userScore.src = "sounds/userScore.mp3";
+comScore.src = "sounds/comScore.mp3";
+
+// user paddle
 const user = {
   x: 0,
   y: cvs.height/2 - 100/2,
@@ -12,7 +23,7 @@ const user = {
   score: 0
 }
 
-// create the com paddle
+// com paddle
 const com = {
   x: cvs.width - 10,
   y: cvs.height/2 - 100/2,
@@ -22,7 +33,7 @@ const com = {
   score: 0
 }
 
-// create the ball
+// ball object
 const ball = {
   x: cvs.width/2,
   y: cvs.height/2,
@@ -128,6 +139,17 @@ function resetBall() {
 
 // update function, that does all calculation
 function update() {
+  // update the scoreboard
+  if (ball.x - ball.radius < 0) {
+    // com wins
+    com.score++;
+    resetBall();
+  } else if (ball.x + ball.radius > cvs.width) {
+    // user wins
+    user.score++;
+    resetBall();
+  }
+
   // the ball's velocity
   ball.x += ball.velocityX;
   ball.y += ball.velocityY;
@@ -168,16 +190,8 @@ function update() {
     // speed up the ball everytime a paddle hits it
     ball.speed += 0.5;
   }
-  // update the scoreboard
-  if (ball.x - ball.radius < 0) {
-    // com wins
-    com.score++;
-    resetBall();
-  } else if (ball.x + ball.radius > cvs.width) {
-    // user wins
-    user.score++;
-    resetBall();
-  }
+
+
 }
 
 // game function
