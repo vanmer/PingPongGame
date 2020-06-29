@@ -95,6 +95,14 @@ function render() {
   drawCircle(ball.x, ball.y, ball.radius, ball.color);
 }
 
+// control the user paddle
+cvs.addEventListener("mousemove", movePaddle);
+function movePaddle(event) {
+  let rect = cvs.getBoundingClientRect();
+  user.y = event.clientY - rect.top - user.height/2;
+}
+
+
 // collision detection of ball and paddles
 function collision(b, p) {
   p.top = p.y;
