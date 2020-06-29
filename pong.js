@@ -79,12 +79,16 @@ function render() {
   // draw the net
   drawNet();
 
-  // draw score
+  // draw the user score to the left
   drawText(user.score, cvs.width/4, cvs.height/5, "WHITE");
-  drawText(user.score, 3 * cvs.width/4, cvs.height/5, "WHITE");
 
-  // draw the user and com paddle
+  // draw the com score to the right
+  drawText(com.score, 3 * cvs.width/4, cvs.height/5, "WHITE");
+
+  // draw the user paddle
   drawRect(user.x, user.y, user.width, user.height, user.color);
+
+  // draw the com paddle
   drawRect(com.x, com.y, com.width, com.height, com.color);
 
   // draw the circle
