@@ -95,3 +95,9 @@ function render() {
 function game() {
   render();
 }
+
+// number of frames per second
+let framePerSecond = 50;
+
+// call the game function 50 times every 1 second
+setInterval(game, 1000/framePerSecond);
