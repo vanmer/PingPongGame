@@ -39,8 +39,6 @@ function drawRect(x, y, w, h, color) {
   ctx.fillRect(x, y, w, h);
 }
 
-drawRect(0,0,cvs.width, cvs.height, "BLACK");
-
 // draw circle function
 function drawCircle(x, y, r, color) {
   ctx.fillStyle = color;
@@ -50,7 +48,7 @@ function drawCircle(x, y, r, color) {
   ctx.fill();
 }
 
-drawCircle(100, 100, 10, "WHITE");
+// drawCircle(100, 100, 50, "WHITE");
 
 // draw text function
 function drawText(text, x, y, color) {
@@ -59,4 +57,20 @@ function drawText(text, x, y, color) {
   ctx.fillText(text, x, y);
 }
 
-drawText("something", 300, 200, "WHITE");
+// drawText("something", 300, 200, "WHITE");
+
+// render function
+function render() {
+  // clear the canvas
+  drawRect(0,0,cvs.width, cvs.height, "BLACK");
+
+  // draw the net
+  drawNet();
+
+  // draw score
+  drawText(user.score, cvs.width/4, cvs.height/5, "WHITE");
+  drawText(user.score, 3 * cvs.width/4, cvs.height/5, "WHITE");
+
+
+
+}
