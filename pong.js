@@ -48,8 +48,6 @@ function drawCircle(x, y, r, color) {
   ctx.fill();
 }
 
-// drawCircle(100, 100, 50, "WHITE");
-
 // draw text function
 function drawText(text, x, y, color) {
   ctx.fillStyle = color;
@@ -57,9 +55,7 @@ function drawText(text, x, y, color) {
   ctx.fillText(text, x, y);
 }
 
-// drawText("something", 300, 200, "WHITE");
-
-// render function
+// render the game
 function render() {
   // clear the canvas
   drawRect(0,0,cvs.width, cvs.height, "BLACK");
@@ -75,6 +71,6 @@ function render() {
   drawRect(user.x, user.y, user.width, user.height, user.color);
   drawRect(com.x, com.y, com.width, com.height, com.color);
 
-  
-
+  // draw the circle
+  drawCircle(ball.x, ball.y, ball.radius, ball.color);
 }
