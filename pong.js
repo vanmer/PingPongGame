@@ -122,8 +122,8 @@ function collision(b, p) {
 function resetBall() {
   ball.x = cvs.width/2;
   ball.y = cvs.height/2;
-
-  
+  ball.speed = 5;
+  ball.velocityX = -ball.velocityX;
 }
 
 // update function, that does all calculation
@@ -166,7 +166,7 @@ function update() {
     ball.velocityY = ball.speed * Math.sin(angleRad);
 
     // speed up the ball everytime a paddle hits it
-    ball.speed += 0.1;
+    ball.speed += 0.5;
   }
   // update the scoreboard
   if (ball.x - ball.radius < 0) {
@@ -178,9 +178,7 @@ function update() {
     user.score++;
     resetBall();
   }
-
 }
-
 
 // game function
 function game() {
