@@ -95,7 +95,7 @@ function render() {
   drawCircle(ball.x, ball.y, ball.radius, ball.color);
 }
 
-// collision detection of ball and player
+// collision detection of ball and paddles
 function collision(b, p) {
   p.top = p.y;
   p.bottom = p.y + p.height;
@@ -121,6 +121,14 @@ function update() {
   // when the ball collides with the bottom and top walls, the the y velocity is inversed
   if (ball.y + ball.radius > cvs.height || ball.y - ball.radius < 0) {
     ball.velocityY = -ball.velocityY;
+  }
+
+  // check if the ball hits the user or com paddle
+  let player = (ball.x + ball.radius < cvs.width/2) ? user : com;
+
+  // if the ball hits a paddle
+  if(collision(ball, player)) {
+
   }
 
 }
