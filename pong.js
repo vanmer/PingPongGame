@@ -138,8 +138,27 @@ function update() {
 
   // if the ball hits a paddle
   if(collision(ball, player)) {
-    // where the ball hit the player
-    
+    // check where the ball hits the paddle
+    let collidePoint = ball.y - (player.y + player.height/2);
+    // normalize value of collidePoint to get numbers between -1 and 1
+    // -player.height/2 < collide Point < player.height/2
+    collidePoint = collidePoint / (player.height/2);
+    // calculate angle in radian
+    // when the ball hits the top of a paddle we want the ball, to take a -45degees angle
+    // when the ball hits the center of the paddle we want the ball to take a 0degrees angle
+    // when the ball hits the bottom of the paddle we want the ball to take a 45degrees
+    // Math.PI/4 = 45 degrees
+    let angleRad = (Math.PI/4) * collidePoint;
+
+    // X direction of the ball when it is hit
+    let direction = (ball.x < cvs.width/2) ? 1 : -1;
+
+    // change the X and Y velocity direction
+    ball.velocityX = direction * ball.speed * Math.cos(angleRad);
+    ball.velocityY = ball.speed * Math.sin(angleRad);
+
+    // speed up the ball everytime a paddle hits it
+    ball.speed += 0.1;
   }
 
 }
