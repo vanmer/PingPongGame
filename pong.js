@@ -71,6 +71,10 @@ function render() {
   drawText(user.score, cvs.width/4, cvs.height/5, "WHITE");
   drawText(user.score, 3 * cvs.width/4, cvs.height/5, "WHITE");
 
+  // draw the user and com paddle
+  drawRect(user.x, user.y, user.width, user.height, user.color);
+  drawRect(com.x, com.y, com.width, com.height, com.color);
 
+  
 
 }
