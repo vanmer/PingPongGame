@@ -20,3 +20,12 @@ function drawCircle(x, y, r, color) {
 }
 
 drawCircle(100, 100, 10, "WHITE");
+
+// draw text function
+function drawText(text, x, y, color) {
+  ctx.fillStyle = color;
+  ctx.font = "45px HELVETICA";
+  ctx.fillText(text, x, y);
+}
+
+drawText("something", 300, 200, "WHITE");
