@@ -95,6 +95,22 @@ function render() {
   drawCircle(ball.x, ball.y, ball.radius, ball.color);
 }
 
+// collision detection of ball and player
+function collision(b, p) {
+  p.top = p.y;
+  p.bottom = p.y + p.height;
+  p.left = p.x;
+  p.right = p.x + p.width;
+
+  b.top = b.y -b.radius;
+  b.bottom = b.y + b.radius;
+  b.left = b.x - b.radius;
+  b.right = b.x + b.radius;
+
+  return p.left < b.right && p.top < b.bottom && p.right > b.left && p.bottom > b.top;
+}
+
+
 // update function, that does all calculation
 function update() {
 
